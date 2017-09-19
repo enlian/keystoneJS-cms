@@ -4,10 +4,10 @@ const importRoutes = keystone.importer(__dirname);
 
 keystone.pre('routes', function (req, res, next) {
 	res.locals.navLinks = [
-		{ label: '主页', key: 'home', href: '/' },
+		// { label: '主页', key: 'home', href: '/' },
 		{ label: '博客', key: 'blog', href: '/blog' },
 		{ label: '画廊', key: 'gallery', href: '/gallery' },
-		{ label: '联系', key: 'contact', href: '/contact' },
+		// { label: '联系', key: 'contact', href: '/contact' },
 	];
 	res.locals.user = req.user;
 	next();
@@ -30,7 +30,7 @@ var routes = {
 exports = module.exports = function (app) {
 
 	// Views
-	app.get('/', routes.views.index);
+	app.get('/', routes.views.blog);
 	app.get('/blog/:category?', routes.views.blog);
 	app.all('/blog/post/:post', routes.views.post);
 	app.get('/gallery', routes.views.gallery);
