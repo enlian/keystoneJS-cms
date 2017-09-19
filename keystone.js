@@ -3,7 +3,7 @@ var keystone = require('keystone');
 
 keystone.init({
 
-	'name': 'Keystone Demo',
+	'name': 'KeystoneJS网站',
 	'brand': 'Demo',
 
 	'favicon': 'public/favicon.ico',
