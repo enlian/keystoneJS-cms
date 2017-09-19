@@ -1,12 +1,6 @@
 # keystoneJS汉化版
 
-keystoneJS是一个非常好用的纯JS语言的CMS框架，
-
-让有JS基础的前端工程师也能很快的搭建一个CMS系统，
-
-做一个简单的企业网站或者博客站非常方便，我根据官方的DEMO做了汉化，
-
-  **轻度二次开发，替换了谷歌字体，基础libs使用CDN，让它更适应我们国内环境。**
+基于本人的[keystoneJS汉化版DEMO](https://github.com/enlian/keystoneJS-zh-demo)，搭建一个图文网站。
 
 持续更新中...欢迎有兴趣的童鞋star，谢谢！
 
