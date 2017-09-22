@@ -2,82 +2,90 @@ include ../mixins/flash-messages
 
 doctype html
 html
-	head
-		if env === 'production'
-			script.
-				var _sf_startpt=(new Date()).getTime()
-		
-		meta(charset="utf-8")
-		meta(name="viewport", content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width")
-		
-		title= title
-		link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
-		link(href='http://fonts.cat.net/css?family=Open+Sans:400italic,400,300,600,700', rel='stylesheet')
-		link(href="/styles/themes/" + currentTheme + ".min.css", rel="stylesheet")
-		
-		if user && user.canAccessKeystone
-			link(href="/keystone/styles/content/editor.min.css", rel="stylesheet")
-		
-		block css
-		block head
-	body
-		nav.navbar.navbar-default.navbar-fixed-top
-			.container
-				.navbar-header
-					button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar-collapse', aria-expanded='false')
-						span.sr-only Toggle navigation
-						span.icon-bar
-						span.icon-bar
-						span.icon-bar
-					a.navbar-brand(href='/') X
-				.collapse.navbar-collapse#navbar-collapse
-					ul.nav.navbar-nav.navbar-left
-						each link in navLinks
-							li(class=(section === link.key ? 'active' : null)): a(href=link.href)= link.label
-					ul.nav.navbar-nav.navbar-right
-						if themes && themes.length
-							li.dropdown
-								a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
-									| 主题
-									span.caret
-								ul.dropdown-menu
-									each theme in themes
-										li(class=currentTheme === theme ? 'active' : '')
-											a(href='?theme=' + theme)= theme
-						if user
-							li: a(href='/keystone') 后台
-							li: a(href='/keystone/signout') 登出
-						else
-							li: a(href='/keystone/signin') 登录
-		.container
-			//- intro
-			block intro
-			//- messages
-			+flash-messages(messages)
-			//- content
-			block content
-			//- footer
-			.site-footer: .container.text-center
-				p Copyright &copy; 2017 Jed Watson. All rights reserved.
+    head
+        if env === 'production'
+            script.
+              var _sf_startpt = (new Date()).getTime()
+
+        meta(charset="utf-8")
+        meta(name="viewport", content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width")
+        meta(name="keywords", content="video,movie,picture,free,porn,pornHD,jav")
+        meta(name='description', content='美图天堂,免费的美女图片和视频社区,Free beauty pictures and video community.')
+        title= title + " - 美图天堂,免费的美女图片和视频社区"
+        link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+        link(href='http://fonts.cat.net/css?family=Open+Sans:400italic,400,300,600,700', rel='stylesheet')
+        if currentTheme=='Bootstrap'
+            link(href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css", rel="stylesheet")
+            link(href="/styles/site.css", rel="stylesheet")
+        else
+            link(href="/styles/themes/" + currentTheme + ".min.css", rel="stylesheet")
+
+        if user && user.canAccessKeystone
+            link(href="/keystone/styles/content/editor.min.css", rel="stylesheet")
+
+        block css
+        block head
+    body
+        nav.navbar.navbar-default.navbar-fixed-top
+            .container
+                .navbar-header
+                    button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar-collapse', aria-expanded='false')
+                        span.sr-only Toggle navigation
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                    a.navbar-brand(href='/') keystone
+                .collapse.navbar-collapse#navbar-collapse
+                    ul.nav.navbar-nav.navbar-left
+                        each link in navLinks
+                            li(class=(section === link.key ? 'active' : null)): a(href=link.href)= link.label
+                    ul.nav.navbar-nav.navbar-right
+                        if themes && themes.length
+                            li.dropdown
+                                a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
+                                    | 主题
+                                    span.caret
+                                ul.dropdown-menu
+                                    each theme in themes
+                                        li(class=currentTheme === theme ? 'active' : '')
+                                            a(href='?theme=' + theme)= theme
+                        //- if user
+                            li: a(href='/keystone') 后台
+                            li: a(href='/keystone/signout') 登出
+                            else
+                                li: a(href='/keystone/signin') 登录
+        .container
+            //- intro
+            block intro
+            //- messages
+            +flash-messages(messages)
+            //- content
+            block content
+            //- footer
+            .site-footer: .container.text-center
+                p Copyright © 2017 美图天堂 |. Inc All rights reserved.版权所有 .
+                p 声明：本站所有资源均来自网络，我们不提供任何上传、存储、播放，版权问题均与本站无关，如有侵权请
+                    a(href="/contact")  联系我们
 
 
-		div(role="dialog",aria-hidden="true").modal.fade#payModal
-			div.modal-dialog.modal-sm
-				div.modal-content
-					div.modal-header 注意
-						button(type="button",class="close",data-dismiss="modal",aria-hidden="true") x
-					div.modal-body 好的
+        div(role="dialog",aria-hidden="true").modal.fade#payModal
+            div.modal-dialog.modal-sm
+                div.modal-content
+                    div.modal-header 注意
+                        button(type="button",class="close",data-dismiss="modal",aria-hidden="true") x
+                    div.modal-body 好的
 
-		//- scripts
-		script(src='https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js')
-		script(src='/js/lib/bootstrap/collapse.js')
-		script(src='/js/lib/bootstrap/dropdown.js')
-		script(src='/js/lib/bootstrap/modal.js')
-		script(src='/js/common.js')
-		script.
-			$('body')[0].style.paddingTop = $('.navbar').height() + 30 + 'px';
-	
-		if user && user.canAccessKeystone
-			script(src='/keystone/js/content/editor.js')
-			
-		block page-js
+        //- scripts
+        script(src='https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js')
+        script(src='https://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js')
+        //- script(src='/js/lib/bootstrap/collapse.js')
+        //- script(src='/js/lib/bootstrap/dropdown.js')
+        //- script(src='/js/lib/bootstrap/modal.js')
+        script(src='/js/common.js')
+        script.
+        //-  $('body')[0].style.paddingTop = $('.navbar').height() + 30 + 'px';
+
+        if user && user.canAccessKeystone
+            script(src='/keystone/js/content/editor.js')
+
+        block page-js

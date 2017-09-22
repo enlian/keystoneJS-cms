@@ -2,8 +2,9 @@ extends ../layouts/default
 
 include ../mixins/post
 block content
-    .page-header
+    //- .page-header
         h1=category ? category.name : '博客'
+
     .row
         .col-sm-8
             if filters.category && !category
@@ -39,10 +40,11 @@ block content
                 else
                     if category
                         .jumbotron.text-center
-                            h3(style="margin-bottom:0;margin-top:0;") 在 #{category.name} 下没有博文.
+                            h3(style="margin-bottom:0;margin-top:0;") 在 #{category.name} 下没有内容.
                     else
                         .jumbotron.text-center
-                            h3(style="margin-bottom:0;margin-top:0;") 暂无数据哦...
+                            h3(style="margin-bottom:0;margin-top:0;") 暂无内容哦...
+
         .col-sm-4
             if categories.length
                 .lead.text-muted 类别

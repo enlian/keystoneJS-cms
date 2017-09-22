@@ -4,7 +4,7 @@ block css
     link(rel="stylesheet", href="https://cdn.bootcss.com/fancybox/2.1.7/css/jquery.fancybox.min.css")
 
 block content
-    .page-header
+    //- .page-header
         h1 画廊
 
     if galleries.length
@@ -22,7 +22,7 @@ block content
 
     else
         .jumbotron.text-center
-            h3(style="margin-bottom:0;margin-top:0;") 暂无数据哦...
+            h3(style="margin-bottom:0;margin-top:0;") 暂无内容哦...
 
 
 
@@ -31,12 +31,13 @@ block page-js
     script.
       jQuery(function ($) {
         $('.gallery-image').fancybox({
-          prevEffect: 'none',
-          nextEffect: 'none',
-          closeBtn: false,
+          closeBtn: true,
           helpers: {
-            title: {type: 'inside'},
-            buttons: {}
+            buttons: {},
+            thumbs: {
+              width: 50,
+              height: 50
+            }
           }
         });
       });

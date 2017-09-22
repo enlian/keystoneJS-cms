@@ -32,6 +32,7 @@ exports = module.exports = function (req, res) {
 
 	view.render('contact', {
 		section: 'contact',
+		title: '联系我们'
 	});
 
 }

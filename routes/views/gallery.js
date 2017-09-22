@@ -3,13 +3,15 @@ var Gallery = keystone.list('Gallery');
 
 exports = module.exports = function (req, res) {
 
-	var view = new keystone.View(req, res);
-	var locals = res.locals;
+  var view = new keystone.View(req, res);
+  var locals = res.locals;
 
-	locals.section = 'gallery';
+  locals.section = 'gallery';
 
-	view.query('galleries', Gallery.model.find().sort('sortOrder'));
+  view.query('galleries', Gallery.model.find().sort('sortOrder'));
 
-	view.render('gallery');
+  view.render('gallery', {
+    title: '图库'
+  });
 
 }
