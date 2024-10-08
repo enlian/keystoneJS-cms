@@ -1,32 +1,57 @@
-# keystoneJS汉化版
+# KeystoneJS Chinese Localization Version
 
-基于本人的[keystoneJS汉化版DEMO](https://github.com/enlian/keystoneJS-zh-demo)，搭建一个图文网站。
+Based on my localized version of KeystoneJS ([https://github.com/enlian/keystoneJS-zh-demo](https://github.com/enlian/KeystoneJS-Chinese-Localization-Version)), this demo showcases how to build an image and text-based website using KeystoneJS.
 
-持续更新中...欢迎有兴趣的童鞋star，谢谢！
+**Continuous updates... If you're interested, feel free to star the project! Thank you!**
 
-# 部署
+## Deployment
 
-- 安装：npm i
+### 1. Install Dependencies
 
-- 跑起mongodb服务
+To install the project dependencies, run:
 
-- 在根目录下新建.env文件，填上下列信息
-
- 
-```
-COOKIE_SECRET=随机字符串
-
-CLOUDINARY_URL=云图片url
-
-MONGO_URI=您的mongodb地址/用户名
+```bash
+npm i
 ```
 
+### 2. Start MongoDB Service
 
+Ensure that MongoDB is running, as the project relies on it.
 
+### 3. Configure Environment Variables
 
-- 开发：npm run dev
+In the project root directory, create a `.env` file and add the following environment variables:
 
-- 生产：npm run pro
+```bash
+COOKIE_SECRET=your-random-string
+CLOUDINARY_URL=your-cloudinary-url
+MONGO_URI=your-mongodb-connection-string
+```
 
+### 4. Run Development Server
 
-有更多安装部署方面的问题可以参考 [keystoneJS官方文档](http://keystonejs.com/zh/docs/getting-started/)
+To start the development server, run:
+
+```bash
+npm run dev
+```
+
+This will launch the project in development mode.
+
+### 5. Run Production Server
+
+To build and run the project in production mode, run:
+
+```bash
+npm run pro
+```
+
+This will create an optimized production build and start the server.
+
+## Additional Information
+
+For more details on installation, deployment, or troubleshooting, refer to the official KeystoneJS documentation.
+
+---
+
+**Continuous updates...** If you find this project helpful, feel free to give it a star! Thank you!
